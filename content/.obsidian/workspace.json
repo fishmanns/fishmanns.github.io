@@ -11,14 +11,17 @@
             "id": "acf7173bc77d9c31",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "算法&Math/强化学习/2 马尔科夫决策过程.md",
-                "mode": "source",
-                "source": false
+                "file": "中国古代史/时间线.canvas",
+                "viewState": {
+                  "x": 674.6826685830202,
+                  "y": 2709.842844814777,
+                  "zoom": -1
+                }
               },
-              "icon": "lucide-file",
-              "title": "2 马尔科夫决策过程"
+              "icon": "lucide-layout-dashboard",
+              "title": "时间线"
             }
           }
         ]
@@ -79,7 +82,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -99,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "强化学习/2 马尔科夫决策过程.md",
+                "file": "中国古代史/时间线.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +122,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "强化学习/2 马尔科夫决策过程.md",
+                "file": "中国古代史/时间线.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +165,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "强化学习/2 马尔科夫决策过程.md",
+                "file": "中国古代史/时间线.canvas",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -170,7 +174,8 @@
               "title": "大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -190,14 +195,18 @@
   },
   "active": "acf7173bc77d9c31",
   "lastOpenFiles": [
+    "中国古代史/时间线.canvas",
+    "诗词",
+    "中国古代史",
+    "index.md",
+    "算法&Math/矩阵论.md",
+    "算法&Math/强化学习/2 马尔科夫决策过程.md",
     "images/rl/3 各个方法的统一视角.png",
     "算法&Math/强化学习/3 表格型方法.md",
     "算法&Math/强化学习/3 b表格型方法.md",
     "算法&Math/强化学习/3 表格性方法.md",
     "算法&Math/强化学习/1 Intro.md",
     "images/rl/1监督学习示意.png",
-    "算法&Math/强化学习/2 马尔科夫决策过程.md",
-    "index.md",
     "images/leastsquare/最小二乘法.jpeg",
     "images/leastsquare/迭代100次后.png",
     "images/leastsquare/3d.png",
@@ -209,7 +218,6 @@
     "images/cs/cs net/image.png",
     "images/cs/cs net/image(1).png",
     "images/cs net/3数据块格式.png",
-    "images/cs net/3传输层流程示意.png",
     "images/cs net",
     "images/leastsquare",
     "images/rl",
@@ -218,8 +226,6 @@
     "images/algorithm",
     "images/cs/计算机网络",
     "images/cs",
-    "images/计算机/计算机网络",
-    "images/计算机/未命名文件夹",
     "算法&Math/卡尔曼滤波.md",
     "test.md",
     "爱智慧/宗教/宗教.md",
@@ -234,8 +240,6 @@
     "计算机/计算机组成原理/Chapter 7_Cache Memories.md",
     "计算机/计算机组成原理/Chapter 6_Memory Hierarchy.md",
     "计算机/计算机组成原理/Chapter 2_Machine Level Programming.md",
-    "计算机/计算机组成原理/Chapter 1_Bits Bytes & Integers.md",
-    "计算机/计算机网络/Chapter4 网络层.md",
-    "未命名.canvas"
+    "计算机/计算机组成原理/Chapter 1_Bits Bytes & Integers.md"
   ]
 }
