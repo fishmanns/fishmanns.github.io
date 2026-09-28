@@ -523,6 +523,16 @@ $$
 \end{align}
 $$
 
+或者:
+$$
+\begin{align}
+d_1(\lambda)=&D_1(\lambda)\\
+d_2(\lambda)=&\frac{D_2(\lambda)}{D_1(\lambda)}\\
+\vdots&\\
+d_r(\lambda)=&\frac{D_r(\lambda)}{D_{r-1}(\lambda)}
+\end{align}
+$$
+
 ---
 
 **注意**: 
@@ -562,7 +572,33 @@ $$
 
 ---
 
-**定理**: 初等变换不改变 $\lambda$-矩阵的行列式因子,因此等价矩阵拥有相同行列式因子,因此具有相同的秩(**秩能行列式因子个数**)
+**定理**: 初等变换不改变 $\lambda$-矩阵的行列式因子,因此等价矩阵拥有相同行列式因子,因此具有相同的秩(**秩=行列式因子个数=不变因子个数)**
+
+### 2.2.2 Smith 标准型的唯一性
+
+**定理**: $A(\lambda)$ 的 Smith 标准型是唯一的
 
 ---
 
+**证明**: 
+
+假设 $A(\lambda)$ 具有 Smith 标准型 $S_1(\lambda), S_2(\lambda)$
+
+由 Smith 标准型定义,$A(\lambda)\simeq S_1(\lambda), A(\lambda)\simeq S_2(\lambda)$
+
+初等变换不改变行列式因子,所以 $S_1,S_2$ 行列式因子一致
+
+不变因子可由行列式因子导出,所以 $S_1,S_2$ 不变因子一致
+
+$S_1=S_2$, Smith 标准型唯一
+
+---
+
+**定理**: 
+
+$m\times n$ 维 $\lambda$ 矩阵 $A(\lambda)\simeq B(\lambda)$:
+
+$$
+\Leftrightarrow 1.对于任意的 k,其 k 阶行列式因子一致
+\Leftrightarrow 2.
+$$
