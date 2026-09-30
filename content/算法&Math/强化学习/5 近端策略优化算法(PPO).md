@@ -59,9 +59,11 @@ $$
 有了重要性采样,便能将原策略梯度转换为采样下的策略梯度
 
 $$
+\begin{align}
 \nabla\bar{R}_\theta=\mathbb{E}_{\tau\sim p_\theta(\tau)}[R(\tau)\nabla\log p_\theta(\tau)]\\
 \Downarrow\\
 \nabla\bar{R}_\theta=\mathbb{E}_{\tau\sim p_{\theta'}(\tau)}[R(\tau)\frac{p_\theta(\tau)}{p_{\theta'}(\tau)}\nabla\log p_{\theta}(\tau)]
+\end{align}
 $$
 
 即保持原式不变,乘以重要性权重
@@ -71,12 +73,14 @@ $$
 引入critic网络替代全局回报
 
 $$
+\begin{align}
 \nabla\bar{R}_\theta=\mathbb{E}_{(s_t, a_t)\sim \pi_{\theta'}}[\frac{p_\theta(s_t,a_t)}{p_{\theta'}(s_t,a_t)}A^{\theta'}(s_t,a_t)\nabla\log p_\theta(a_t|s_t)]\\
 (\nabla\log是数学推导,并不是直接的代换,详见上一章)\\
 \Downarrow\\
 \mathbb{E}_{(s_t, a_t)\sim \pi_{\theta'}}[\frac{p_\theta(a_t|s_t)p_\theta(s_t)}{p_{\theta'}(a_t|s_t)p_{\theta'}(s_t)}A^{\theta'}(s_t,a_t)\nabla\log p_\theta(a_t|s_t)]\\
 \Downarrow\\
 \mathbb{E}_{(s_t, a_t)\sim \pi_{\theta'}}[\frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}A^{\theta'}(s_t,a_t)\nabla\log p_\theta(a_t|s_t)]
+\end{align}
 $$
 
 关键的疑问在于 $p_\theta(s_t)=p_{\theta'}(s_t)$ 是如何成立的,即怎么能直接将其约分
@@ -86,12 +90,14 @@ $$
 通过梯度能够获取原来的优化目标
 
 $$
+\begin{align}
 \nabla f(x)=f(x)\nabla\log f(x)\\
 \Downarrow\\
 J^{\theta'}(\theta)=\sum \frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}A^{\theta'}(s_t,a_t) p_{\theta'}(a_t|s_t)\\
 (因为原式就是在 \theta' 下的期望)\\
 \Downarrow\\
 J^{\theta'}(\theta)=\mathbb{E}_{(s_t,a_t)\sim \pi_{\theta'}}[\frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}A^{\theta'}(s_t,a_t)]
+\end{align}
 $$
 
 ## 5.3 PPO 优化
@@ -99,8 +105,10 @@ $$
 在重要性采样中提到,如果分布 $p$ 与分布 $q$ 相差太大,则会产生较大方差,因此除了原本的优化目标外,还需添加一项对分布约束进行限制
 
 $$
+\begin{align}
 J^{\theta'}_{PPO}(\theta)=J^{\theta'}(\theta)-\beta\mathrm{KL}(\theta,\theta')\\
 J^{\theta'}(\theta)=\mathbb{E}_{(s_t,a_t)\sim \pi_{\theta'}}[\frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}A^{\theta'}(s_t,a_t)]
+\end{align}
 $$
 
 其中 $\mathrm{KL(\theta,\theta')}$ 可认为是关于 $(\theta,\theta')$ 的函数,能够**衡量两个参数在行为上的距离而不是参数本身的差距**,也就是在动作概率分布上的差距,实际上求参数的差距并没有意义,因为每个参数值对最后的结果影响比重都是不同的
@@ -128,8 +136,10 @@ $$
 其意义为:
 
 $$
+\begin{align}
 \mathrm{if}\hspace{1em}\frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}\geq1+\epsilon,\frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}=1+\epsilon\\
 \mathrm{if}\hspace{1em}\frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}\leq1-\epsilon,\frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}=1-\epsilon
+\end{align}
 $$
 
 通常取 $\epsilon=0.1/0.2$,即
@@ -141,10 +151,12 @@ $$
 同时将优化目标改写为
 
 $$
+\begin{align}
 J^{\theta'}_{PPO-clip}(\theta)=\mathbb{E}_{(s_t,a_t)\sim \pi_{\theta'}}[\min\Big(\\
 \frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)}A^{\theta'}(s_t,a_t),\\
 \mathrm{clip}(\frac{p_\theta(a_t|s_t)}{p_{\theta'}(a_t|s_t)},1-\epsilon,1+\epsilon)A^{\theta'}(s_t,a_t)\\
 \Big)]
+\end{align}
 $$
 
 通俗而言
