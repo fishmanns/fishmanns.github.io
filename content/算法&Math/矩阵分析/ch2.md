@@ -4,7 +4,7 @@
 
 ### 2.1.1 l矩阵
 
-**定义**: 设 $a_{ij}(\lambda)$ 为数域 $F(\reals实数域/\Complex复数域/\mathbb{Q}有理数域)$ 上的多项式,称
+**定义**: 设 $a_{ij}(\lambda)$ 为数域 $F(\mathbb{R}实数域/\mathbb{C}复数域/\mathbb{Q}有理数域)$ 上的多项式,称
 
 $$
 A(\lambda)=
@@ -22,7 +22,7 @@ $$
 
 *eg1: 非零数字矩阵为 0 次 l矩阵*
 
-*eg2: 当 $A\in\Complex^{n\times n},\lambda I-A$ 是 1 次l矩阵*
+*eg2: 当 $A\in\mathbb{C}^{n\times n},\lambda I-A$ 是 1 次l矩阵*
 
 
 ### 2.1.2 子式
@@ -115,7 +115,7 @@ $$
 
 *eg1: 零矩阵的秩为 0*
 
-*eg2: 当 $A\in\Complex^{n\times n},\lambda I-A$ 的秩为n*
+*eg2: 当 $A\in\mathbb{C}^{n\times n},\lambda I-A$ 的秩为n*
 
 ### 2.1.4 l矩阵的逆矩阵
 

@@ -102,8 +102,10 @@ $$
 这样自锁的迭代必然不太稳定,一般做法是引入**目标网络**将迭代与采样隔离开
 
 $$
+\begin{align}
 Q_\theta: 在线网络,用于梯度下降迭代策略\\
 Q_{\theta^-}: 目标网络,用于计算 TD-target
+\end{align}
 $$
 
 初始化时
@@ -180,17 +182,21 @@ $$
 而网络预测必然存在误差,假设存在三个动作
 
 $$
+\begin{align}
 Q_{\theta^-}(s_2,a_1)=10\\
 Q_{\theta^-}(s_2,a_2)=10\\
 Q_{\theta^-}(s_2,a_3)=10
+\end{align}
 $$
 
 他们 $Q$ 值相等, 在 $Q_\theta(s_1,a)$ 的迭代中应当有同等效力,但考虑误差
 
 $$
+\begin{align}
 Q_{\theta^-}(s_2,a_1)=10.001\\
 Q_{\theta^-}(s_2,a_2)=9\\
 Q_{\theta^-}(s_2,a_3)=9.99
+\end{align}
 $$
 
 即使一点偏差也会使得 $(s_1,a)\rightarrow(s_2,a_1)$ 更具有依赖性
@@ -198,10 +204,12 @@ $$
 常见方法是**将选择动作和计算 Q 值的网络隔离**,即一个选择动作,另一个计算 Q 值
 
 $$
+\begin{align}
 Q_\theta(s_t,a_t)\rightarrow r_{t+1}+\gamma\max\limits_{a_{t+1}}Q_{\theta^-}(s_{t+1},a_{t+1})\\
 \Downarrow\\
 a_{t+1}=\operatorname*{arg\,max}\limits_{a}Q_\theta(s_{t+1},a)\\
 Q_\theta(s_t,a_t)\rightarrow r_{t+1}+\gamma Q_{\theta^-}(s_{t+1},a_{t+1})\\
+\end{align}
 $$
 
 ### 6.7.2 竞争 Q 网络(Dueling DQN)
