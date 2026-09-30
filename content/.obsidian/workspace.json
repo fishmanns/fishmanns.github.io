@@ -4,20 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "74081ad570425475",
+        "id": "6d45aaa956bb7051",
         "type": "tabs",
         "children": [
           {
-            "id": "acf7173bc77d9c31",
+            "id": "3c92e7eb66ef6d02",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
                 "file": "中国古代史/时间线.canvas",
                 "viewState": {
-                  "x": 674.6826685830202,
-                  "y": 2709.842844814777,
-                  "zoom": -1
+                  "x": 255.4502124384554,
+                  "y": 871.5775819437603,
+                  "zoom": -0.9516847010895301
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -193,7 +193,7 @@
       "bases:新建数据库": false
     }
   },
-  "active": "acf7173bc77d9c31",
+  "active": "3c92e7eb66ef6d02",
   "lastOpenFiles": [
     "中国古代史/时间线.canvas",
     "诗词",
