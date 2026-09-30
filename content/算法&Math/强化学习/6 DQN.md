@@ -43,9 +43,9 @@ $$
 $$
 \pi^*(a_t|s_t) = 
 \begin{cases}
-    1,a_t=\argmax\limits_{a^*_t}Q_\theta(s_t,a^*_t)
+    1,a_t=\operatorname*{arg\,max}\limits_{a^*_t}Q_\theta(s_t,a^*_t)
     \\
-    0, a_t\neq\argmax\limits_{a^*_t}Q_\theta(s_t,a^*_t)
+    0, a_t\neq\operatorname*{arg\,max}\limits_{a^*_t}Q_\theta(s_t,a^*_t)
 \end{cases}
 $$
 
@@ -54,7 +54,7 @@ $$
 $$
 a=
 \begin{cases}
-    \argmax\limits_{a_t}Q_\theta(s_t,a_t), 有 1-\epsilon 的概率  
+    \operatorname*{arg\,max}\limits_{a_t}Q_\theta(s_t,a_t), 有 1-\epsilon 的概率  
     \\
     \mathrm{random}, \mathrm{else}
 \end{cases}
@@ -66,7 +66,7 @@ $$
 
 ## 6.3 策略迭代
 
-在表格型方法中,不需要显式地策略迭代: $Q(s_t,a_t)$ 直接通过 TD-target 更新,策略通过 $\argmax + \epsilon-贪心$ 直接更改
+在表格型方法中,不需要显式地策略迭代: $Q(s_t,a_t)$ 直接通过 TD-target 更新,策略通过 $\operatorname*{arg\,max} + \epsilon-贪心$ 直接更改
 
 然而在 DQN 中,我们必须显式迭代,原因在于我们无法直接接触 $Q_\theta(s_t,a_t)$,我们只能通过修正网络参数 $\theta$,让 $Q_\theta(s_t,a_t)$ 趋近于 TD-target
 
@@ -200,7 +200,7 @@ $$
 $$
 Q_\theta(s_t,a_t)\rightarrow r_{t+1}+\gamma\max\limits_{a_{t+1}}Q_{\theta^-}(s_{t+1},a_{t+1})\\
 \Downarrow\\
-a_{t+1}=\argmax\limits_{a}Q_\theta(s_{t+1},a)\\
+a_{t+1}=\operatorname*{arg\,max}\limits_{a}Q_\theta(s_{t+1},a)\\
 Q_\theta(s_t,a_t)\rightarrow r_{t+1}+\gamma Q_{\theta^-}(s_{t+1},a_{t+1})\\
 $$
 
@@ -241,7 +241,7 @@ $$
 然后在**该回合中,保持 $\tilde{\theta}$ 不变**进行游戏,每次采样选择
 
 $$
-a=\argmax\limits_{a_t}\tilde{Q}_{\tilde{\theta}}(s_t,a_t)
+a=\operatorname*{arg\,max}\limits_{a_t}\tilde{Q}_{\tilde{\theta}}(s_t,a_t)
 $$
 
 这样做的好处是,对于 $\epsilon$-贪心而言,所谓的探索只是概率游戏,我们有概率选择最好的,或者有概率随机乱走,假设另一条采样又来到这个状态,其动作不能确定.而对于噪声网络而言,能保证当前回合,参数不变的情况下,每次来到这个状态,都能复现上一次的结果,然后下个回合我们再添加不同的噪声,达到不同的结果
