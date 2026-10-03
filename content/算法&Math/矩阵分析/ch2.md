@@ -599,6 +599,321 @@ $S_1=S_2$, Smith 标准型唯一
 $m\times n$ 维 $\lambda$ 矩阵 $A(\lambda)\simeq B(\lambda)$:
 
 $$
-\Leftrightarrow 1.对于任意的 k,其 k 阶行列式因子一致
-\Leftrightarrow 2.
+\begin{align}
+&1.对于任意的 k,其 k 阶行列式因子一致\\
+&\Updownarrow\\
+&2.具有形式一致的不变因子组\\
+&\Updownarrow\\
+&3.具有相同的 Smith 标准型
+\end{align}
 $$
+
+---
+
+**推论:**
+
+$$
+\begin{align}
+&\lambda矩阵 A(\lambda) 可逆\\
+&\Updownarrow\\
+&A(\lambda)\simeq 单位矩阵\\
+&\Updownarrow\\
+&A(\lambda) 可以表示成为有限个初等矩阵的乘积\\
+\end{align}
+$$
+
+$$
+\begin{align}
+&A(\lambda)\simeq B(\lambda)\\
+&\Updownarrow\\
+&存在可逆矩阵 P(\lambda)/Q(\lambda)使得B(\lambda)=P(\lambda)A(\lambda)Q(\lambda)    
+\end{align}
+$$
+
+## 2.3 初等因子和等价条件
+
+### 2.3.1 初等因子
+
+**定义:**
+
+$\lambda$-矩阵 $A(\lambda)$ 的不变因子
+
+$$
+d_1(\lambda), d_2(\lambda), \cdots, d_r(\lambda)
+$$
+
+将其在复数域内分解成为**一次因式**的**幂**的乘积
+
+$$
+\begin{align}
+d_1(\lambda)&=(\lambda-\lambda_1)^{e_{11}}(\lambda-\lambda_2)^{e_{12}}\cdots(\lambda-\lambda_s)^{e_{1s}}\\    
+d_2(\lambda)&=(\lambda-\lambda_1)^{e_{21}}(\lambda-\lambda_2)^{e_{22}}\cdots(\lambda-\lambda_s)^{e_{2s}}\\    
+&\cdots\\
+d_r(\lambda)&=(\lambda-\lambda_1)^{e_{r1}}(\lambda-\lambda_2)^{e_{r2}}\cdots(\lambda-\lambda_s)^{e_{rs}}\\    
+\end{align}
+$$
+
+其中 $\lambda_1,\lambda_2,\cdots,\lambda_s$ 互异,$e_{ij}$ 为非负整数,由于 $d_i(\lambda)|d_{i+1}(\lambda)$,所以
+
+$$
+\begin{align}
+&0\leq e_{11}\leq e_{21} \leq\cdots\leq e_{r1}\\
+&0\leq e_{12}\leq e_{22} \leq\cdots\leq e_{r2}\\
+&\cdots\\
+&0\leq e_{1s}\leq e_{2s} \leq\cdots\leq e_{rs}
+\end{align}
+$$
+
+称**所有指数大于 0** 的因子为 $\lambda$-矩阵 $A(\lambda)$ 的初等因子
+
+$$
+(\lambda-\lambda_s)^{e_{ij}},e_{ij}>0
+$$
+
+---
+
+**注意:**
+
+1/指数为 0 项不算入初等因子,因为可以无限乘 1
+
+---
+
+*eg*
+
+如果 $5\times6$ 阶 $\lambda$ 矩阵的秩为 4,其初等因子为
+
+$$
+\lambda,\lambda,\lambda^2,(\lambda-1),(\lambda-1)^2,(\lambda-1)^3,(\lambda+i)^3,(\lambda-i)^3
+$$
+
+求 $A(\lambda)$ 的 Smith 标准型
+
+### 2.3.2 初等因子的等价性
+
+**定理:**
+
+$m\times n$ 维矩阵 $A(\lambda)$ 与 $B(\lambda)$ 等价的充要条件是
+
+1. 相同的秩
+2. 相同的初等因子
+   
+---
+
+**注意:**
+
+与 Smith 标准型,行列式因子,不变因子 不一样,通过初等因子判断需保证**秩**一致
+
+---
+
+**定理:**
+
+$\lambda$ 矩阵
+
+$$
+A(\lambda)=
+\begin{bmatrix}
+B(\lambda) &\\
+& C(\lambda)
+\end{bmatrix} 
+$$
+
+为分块对角矩阵,则 $B(\lambda)/C(\lambda)$ 的初等因子全体是 $A(\lambda)$ 的全部初等因子
+
+---
+
+**推论:**
+
+$\lambda$ 矩阵
+
+$$
+A(\lambda)=
+\begin{bmatrix}
+A_1(\lambda) & & &\\
+& A_2(\lambda) & &\\
+& & \ddots &\\
+& & & A_t(\lambda)
+\end{bmatrix} 
+$$
+
+为分块对角矩阵,则 $A_1(\lambda)/A_2(\lambda)/\cdots/A_t(\lambda)$ 的初等因子全体是 $A(\lambda)$ 的全部初等因子
+
+--- 
+
+*eg*
+
+求下列矩阵的初等因子/秩/不变因子/行列式因子/Smith 标准型
+
+$$
+A(\lambda)=
+\begin{bmatrix}
+0 & 0 & 0 & \lambda^2\\
+0 & 0 & \lambda^2-\lambda & 0\\
+0 & (\lambda-1)^2 & 0 & 0\\
+\lambda^2-\lambda & 0 & 0 & 0\\
+\end{bmatrix}
+$$
+
+$$
+B(\lambda)=
+\begin{bmatrix}
+\lambda^2+\lambda & 0 & 0 & 0\\
+0 & \lambda & 0 & 0\\
+0 & 0 & (\lambda+1)^2 & \lambda+1\\
+0 & 0 & -2 & \lambda-2\\
+\end{bmatrix}
+$$
+
+## 2.4 数字矩阵的相似与 $\lambda$ 矩阵的等价
+
+### 2.4.1 数字矩阵与 $\lambda$ 矩阵的关系
+
+**引理:** $\lambda$ 矩阵的带余除法  
+
+设
+\[
+B(\lambda)=B_r\lambda^r+\cdots+B_0
+\]
+是 \(n\times n\) 的 \(\lambda\)-矩阵，且 \(B_r\) 可逆。  
+则对任意 \(n\times n\) 的 \(\lambda\)-矩阵 \(A(\lambda)\)，存在唯一的 \(P_0(\lambda),R_0(\lambda)\)，使得
+\[
+A(\lambda)=P_0(\lambda)B(\lambda)+R_0(\lambda),
+\]
+且
+\[
+\partial R_0(\lambda)<r.
+\]
+同理，存在唯一的 \(P_1(\lambda),R_1(\lambda)\)，使得
+\[
+A(\lambda)=B(\lambda)P_1(\lambda)+R_1(\lambda),
+\]
+且
+\[
+\partial R_1(\lambda)<r.
+\]
+
+---
+
+**定理:**
+
+设 $A,B$ 为两个 $n$ 阶数字矩阵,那么 $A\sim B$ 的充要条件为其特征矩阵 $(\lambda I-A)\sim(\lambda I-B)$ 
+设 $A,B$ 为两个 $n$ 阶数字矩阵,那么 $A\simeq B$ 的充要条件为其特征矩阵 $(\lambda I-A)\simeq(\lambda I-B)$ 
+
+--- 
+
+**定理:**
+
+两个同阶方阵 $A\sim B$ 的充要条件是 $(\lambda I-A)/(\lambda I-B)$ 有相同的初等因子 
+两个同阶方阵 $A\sim B$ 的充要条件是 $(\lambda I-A)/(\lambda I-B)$ 有相同的行列式因子
+
+---
+
+*eg*
+
+设 $\epsilon\neq 0$,证明
+
+$$
+A=
+\begin{bmatrix}
+a & 1 &  &\\
+  & a & \ddots &  &\\
+  &   & \ddots & 1 &\\
+  &   &  &  a\\
+\end{bmatrix}
+$$
+
+与
+
+$$
+B=
+\begin{bmatrix}
+a & \epsilon &  &\\
+  & a & \ddots &  &\\
+  &   & \ddots & \epsilon &\\
+  &   &  &  a\\
+\end{bmatrix}
+$$
+
+相似
+
+## 2.5 矩阵的 Jordan 标准型
+
+### 2.5.1 Jordan 标准型
+
+**定义:**
+
+称 $n$ 阶矩阵
+
+$$
+J=
+\begin{bmatrix}
+J_{k_1}(\lambda_1)&&\\
+&J_{k_2}(\lambda_2)&\\
+&&\ddots\\
+&&&J_{k_s}(\lambda_s)
+\end{bmatrix}
+$$
+
+为 **Jordan 标准型**。
+
+其中每个
+
+$$
+J_k(\lambda)=
+\begin{bmatrix}
+\lambda&1&&\\
+&\lambda&\ddots&\\
+&&\ddots&1\\
+&&&\lambda
+\end{bmatrix}_{k\times k}
+$$
+
+称为一个 **Jordan 块（Jordan block）**。
+
+---
+
+**注意:**
+
+1. Jordan 标准型中的 $\lambda_i$ 为 $A$ 的特征值。
+2. Jordan 块的对角线元素均为对应特征值 $\lambda$，**上超对角线为 $1$**。
+3. 同一特征值对应的 Jordan 块可以有多个。
+4. Jordan 标准型在 Jordan 块排列顺序不同时形式不同，但本质上是唯一的。
+
+---
+
+**eg:**
+
+若
+
+$$
+A\sim
+\begin{bmatrix}
+2&1&0\\
+0&2&1\\
+0&0&2
+\end{bmatrix}
+$$
+
+则其 Jordan 标准型为
+
+$$
+J=J_3(2)
+$$
+
+若
+
+$$
+A\sim
+\begin{bmatrix}
+2&1&0\\
+0&2&0\\
+0&0&3
+\end{bmatrix}
+$$
+
+则
+
+$$
+J=J_2(2)\oplus J_1(3).
+$$
+
+
