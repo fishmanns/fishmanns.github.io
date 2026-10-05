@@ -846,10 +846,10 @@ $$
 $$
 J=
 \begin{bmatrix}
-J_{k_1}(\lambda_1)&&\\
-&J_{k_2}(\lambda_2)&\\
+J_1(\lambda_1)&&\\
+&J_2(\lambda_2)&\\
 &&\ddots\\
-&&&J_{k_s}(\lambda_s)
+&&&J_s(\lambda_s)
 \end{bmatrix}
 $$
 
@@ -858,13 +858,13 @@ $$
 其中每个
 
 $$
-J_k(\lambda)=
+J_i(\lambda_i)=
 \begin{bmatrix}
-\lambda&1&&\\
-&\lambda&\ddots&\\
+\lambda_i&1&&\\
+&\lambda_i&\ddots&\\
 &&\ddots&1\\
-&&&\lambda
-\end{bmatrix}_{k\times k}
+&&&\lambda_i
+\end{bmatrix}_{i\times i}
 $$
 
 称为一个 **Jordan 块（Jordan block）**。
