@@ -2,27 +2,27 @@
 
 ## 2.1 $\lambda$矩阵及标准型
 
-### 2.1.1 l矩阵
+### 2.1.1 $\lambda$矩阵
 
 **定义**: 设 $a_{ij}(\lambda)$ 为数域 $F(\mathbb{R}实数域/\mathbb{C}复数域/\mathbb{Q}有理数域)$ 上的多项式,称
 
 $$
 A(\lambda)=
 \begin{bmatrix}
-a_{11}(\lambda) & a_{12}(\lambda) & \cdots  & a_{1n}(\lambda)\\
+a_{11}(\lambda) & a_{12}(\lambda) & \cdots  & a_{1n}(\lambda)\\e
 a_{21}(\lambda) & a_{22}(\lambda) & \cdots & a_{2n}(\lambda)\\
 \vdots & \vdots & \ddots & \vdots \\
 a_{m1}(\lambda) & a_{m2}(\lambda) & \cdots & a_{mn}(\lambda)
 \end{bmatrix}
 $$
 
-为多项式矩阵/l矩阵.**不为0的多项式 $a_{ij}(\lambda)$ 中最高的次数为 $A(\lambda) 的次数$**
+为多项式矩阵/$\lambda$矩阵.**不为0的多项式 $a_{ij}(\lambda)$ 中最高的次数为 $A(\lambda) 的次数$**
 
 ---
 
-*eg1: 非零数字矩阵为 0 次 l矩阵*
+*eg1: 非零数字矩阵为 0 次 $\lambda$矩阵*
 
-*eg2: 当 $A\in\mathbb{C}^{n\times n},\lambda I-A$ 是 1 次l矩阵*
+*eg2: 当 $A\in\mathbb{C}^{n\times n},\lambda I-A$ 是 1 次$\lambda$矩阵*
 
 
 ### 2.1.2 子式
@@ -103,7 +103,7 @@ $$
 
 ### 2.1.3 正规秩
 
-**定义**: 如果l矩阵 $A(\lambda)$ 中**有一个** r 阶 (r>=1) 子式不为 0,而所有 r+1 阶子式(如果有)全为 0,称 $A(\lambda)$ 的(正规)秩为 r ,记作:
+**定义**: 如果$\lambda$矩阵 $A(\lambda)$ 中**有一个** r 阶 (r>=1) 子式不为 0,而所有 r+1 阶子式(如果有)全为 0,称 $A(\lambda)$ 的(正规)秩为 r ,记作:
 
 $$
 rank{A(\lambda)}=r
@@ -117,7 +117,7 @@ $$
 
 *eg2: 当 $A\in\mathbb{C}^{n\times n},\lambda I-A$ 的秩为n*
 
-### 2.1.4 l矩阵的逆矩阵
+### 2.1.4 $\lambda$矩阵的逆矩阵
 
 **定义**：设 $A(\lambda)$ 是一个 $n$ 阶 $\lambda$-矩阵，如果存在一个 $n$ 阶 $\lambda$-矩阵 $B(\lambda)$，使得
 
@@ -131,7 +131,7 @@ $$
 B(\lambda)=A^{-1}(\lambda)
 $$
 
-同时可逆的l矩阵又称为单位模矩阵(幺模矩阵)
+同时可逆的$\lambda$矩阵又称为单位模矩阵(幺模矩阵)
 
 ---
 
