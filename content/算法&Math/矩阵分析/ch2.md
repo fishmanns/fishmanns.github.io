@@ -841,7 +841,7 @@ $$
 
 **定义:**
 
-称 $n$ 阶矩阵
+称准对角 $n$ 阶矩阵
 
 $$
 J=
@@ -867,53 +867,393 @@ J_i(\lambda_i)=
 \end{bmatrix}_{i\times i}
 $$
 
-称为一个 **Jordan 块（Jordan block）**。
+称为一个 **Jordan 块**。
+
+**Jordan 块的个数 = 初等因子的个数**
+**Jordan 块的大小 = 初等因子的次数**
+**Jordan 块的特征值 = 初等因子的根**
+
+---
+
+**性质:**
+
+由 2.4 eg 可知, Jordan 块特征矩阵的初等因子为
+
+$$
+(\lambda-\lambda_i)^{n_i}
+$$
+
+从而 Jordan 标准型矩阵的特征矩阵的初等因子为
+
+$$
+(\lambda-\lambda_1)^{n_1},(\lambda-\lambda_2)^{n_2},\cdots,(\lambda-\lambda_s)^{n_s}
+$$
+
+---
+
+**定理:**
+
+对于任意方阵 $A\in\mathbb{C}^{n\times n}$,设其**特征矩阵**的初等因子为
+
+$$
+(\lambda-\lambda_1)^{n_1},(\lambda-\lambda_2)^{n_2},\cdots,(\lambda-\lambda_s)^{n_s},\sum_{i=1}^{s}n_i=n
+$$
+
+且存在 $J$,使得
+
+$$
+J=
+\begin{bmatrix}
+J_1&&\\
+&J_2&\\
+&&\ddots\\
+&&&J_s
+\end{bmatrix}
+$$
+
+$$
+J_k=
+\begin{bmatrix}
+\lambda_i&1&&\\
+&\lambda_i&\ddots&\\
+&&\ddots&1\\
+&&&\lambda_i
+\end{bmatrix}_{n_i\times n_i}
+$$
+
+则 $A\sim J$,称 $J$ 为 $A$ 的 Jordan 标准型
+且 $\exists P\in C^{n\times n},|P|\neq0$,使得 $AP=PJ$
+
+由上一章推论,**两个矩阵相似的充要条件是双方特征矩阵初等因子一致**,因此对于任意数字矩阵 $A$,都可以构造一个 $J$,使得 $\lambda I-A$ 与 $\lambda I - J$ 拥有同样的初等因子,这时便有 $A\sim J$
+
+---
+
+**推论:**
+
+$A$ 可以对角化的充要条件是 $A$ 的特征矩阵的初等因子都是一次因式
+
+$$
+A[p_1, p_2, \cdots, p_n]=[p_1, p_2,\cdots,p_n]\begin{bmatrix}
+\lambda_1 & & &\\
+& \lambda_2 & &\\
+& & \ddots &\\
+& & & \lambda_n    
+\end{bmatrix}
+$$
+
+即
+
+$$
+Ap_i=p_i\lambda
+$$
+
+**Jordan 块的大小 = 初等因子的次数**,这样要使得 $A$ 能相似于一个对角阵,就要求**初等因子的次数都为 1 次**,每个 Jordan 块都为 1x1
+
+但一般情况下,不全为 1 次,此时对于第 i 个 Jordan 块而言
+
+$$
+A[p_{1,i},p_{2,i},\cdots,p_{n,i}]
+=[p_{1,i},p_{2,i},\cdots,p_{n,i}]
+\begin{bmatrix}
+\lambda_i & 1 & & &\\
+& \lambda_i & \ddots & &\\
+& & \ddots & 1 &\\
+& & & \lambda_i
+\end{bmatrix}_{n_i\times n_i}
+$$
+
+$$
+\begin{align}
+(A-\lambda_iI)p_{1,i}&=0\\
+(A-\lambda_iI)p_{2,i}&=p_{1,i}\\
+(A-\lambda_iI)p_{3,i}&=p_{2,i}\\
+&\vdots\\
+(A-\lambda_iI)p_{n,i}&=p_{n-1,i}
+\end{align}
+$$
 
 ---
 
 **注意:**
 
-1. Jordan 标准型中的 $\lambda_i$ 为 $A$ 的特征值。
-2. Jordan 块的对角线元素均为对应特征值 $\lambda$，**上超对角线为 $1$**。
-3. 同一特征值对应的 Jordan 块可以有多个。
-4. Jordan 标准型在 Jordan 块排列顺序不同时形式不同，但本质上是唯一的。
++ 每一个 Jordan 块对应着该特征值的一个 1 维特征子空间
++ 每一个 Jordan 块对应着一个不变子空间
++ 对于给定特征值 $\lambda_i$,其对应的 Jordan 块的个数等于 $\lambda_i$ 的几何重度
++ 对于给定 $\lambda_i$,其对应全体 Jordan 块的阶数之和等于 $\lambda_i$ 的代数重度
 
 ---
 
-**eg:**
+*eg*
 
-若
+求方阵
 
 $$
-A\sim
+A=
 \begin{bmatrix}
-2&1&0\\
-0&2&1\\
-0&0&2
+-1 & -2 & 6\\
+-1 & 0 & 3\\
+-1 & -1 & 4
 \end{bmatrix}
 $$
 
-则其 Jordan 标准型为
+的 Jordan 标准型及其相似变换
+
+## 2.6 零化多项式与最小多项式
+
+### 2.6.1 矩阵多项式
+
+**定义:**
+
+设 $A$ 为方阵,变量 $\lambda$ 的多项式 $f(\lambda)=a_m\lambda^m+a_{m-1}\lambda^{m-1}+\cdots+a_1\lambda+a_0$,称
 
 $$
-J=J_3(2)
+f(A)=a_mA^m+a_{m-1} A^{m-1}+\cdots+a_1A+a_0I
 $$
 
-若
+为 $A$ 的矩阵多项式
+
+---
+
+*eg*
+
+设 $A\in\mathbb{C}^{n\times n}$,$J$ 为其 Jordan 标准型,求
 
 $$
-A\sim
+A=PJP^{-1}
+$$
+
+关于 $P/p^{-1}$ 的矩阵多项式
+
+### 2.6.2 零化多项式
+
+**定义:**
+
+已知 $A\in\mathbb{C}^{n\times n}$ 和关于变量 $\lambda$ 的非零多项式
+
+$$
+f(\lambda)=a_m\lambda+a_{m-1}\lambda^{m-1}+\cdots+a_1\lambda+a_0
+$$
+
+若 $f(\lambda)$ 满足 $f(A)=0_{n\times n}$,称 $f(\lambda)$ 为 $A$ 的一个零化多项式
+
+即 $A^{m}$ 及其以上阶次都可以由 $A^{m-1},A^{m-2},\cdots,I$ 线性表示
+
+---
+
+**注意:**
+
++ 若 $f(\lambda)$ 为 $A$ 的一个零化多项式,则对于任意多项式 $g(\lambda)$,$f(\lambda)g(\lambda)$ 也是 $A$ 的一个零化多项式
++ $f(\lambda)$ 次数越低,越具有代表性,因为高次数的可以不断乘其他多项式得到
++ $A$ 的零化多项式一定存在
+
+---
+
+**性质:**
+
+由 $A=PJP^{-1}$
+
+$$
+\begin{align}
+f(A)&=0\\
+&\Downarrow\\
+f(A)=Pf(J)P^{-1}&=0\\
+&\Downarrow\\
+f(J)&=0\\
+&\Downarrow\\
+f(J_i)&=0 
+\end{align}
+$$
+
+**特殊零化多项式**
+
+观察 Jordan 块
+
+$$
+J_i=
 \begin{bmatrix}
-2&1&0\\
-0&2&0\\
-0&0&3
+\lambda_i & 1 & & &\\
+& \lambda_i & 1 & &\\
+& & \ddots & \ddots &\\
+& & & \lambda_i & 1\\
+& & & & \lambda_i
+\end{bmatrix}_{n_i\times n_i}
+=\lambda_iI_{n_i\times n_i}+N_{n_i\times n_i}
+$$
+
+注意到
+
+$$
+N_{n_i\times n_i}^{n_i}=0_{n_i\times n_i}
+$$
+
+则有
+
+$$
+(J_i-\lambda_iI_{n_i})^{n_i}=N_{n_i}^{n_i}=0_{n_i\times n_i}
+$$
+
+对于 Jordan 块而言,其零化多项式 $f(\lambda)=(\lambda-\lambda_i)^{n_i}$ (最小/无证明)
+
+---
+
+**定理:**
+
+Cayley-Hailton:
+
+$$
+\forall A \in\mathbb{C}^{n\times n},f(\lambda)=|\lambda I-A|=\lambda^n+\cdots+a_0
+$$
+
+则 $f(A)$ 特征多项式为矩阵自身的零化多项式
+
+### 2.6.3 最小多项式
+
+**定义:**
+
+已知 $A\in\mathbb{C}^{n\times n}$,在 $A$ 的零化多项式中,次数最低且首项系数为 1 的零化多项式称为 $A$ 的最小多项式,通常记为 $m(\lambda)$
+
+---
+
+**性质:**
+
++ 矩阵 $A$ 的最小多项式 $m(\lambda)$ 是唯一的
++ 矩阵的任意一个零化多项式都能被 $m(\lambda)$ 整除
++ 相似矩阵由相同的最小多项式
+
+---
+
+**定理:**
+
+$n_i$ Jordan 块 $J_i$ 的最小多项式为 $(\lambda-\lambda_i)^{n_i}$
+
+已知对角矩阵
+
+$$
+A=diar(A_1,A_2,\cdots,A_r)
+$$
+
+其中 $m_1(\lambda),m_2(\lambda),\cdots,m_r(\lambda)$ 分别为各子块的最小多项式,则 $A$ 的最小多项式为 $m_1(\lambda),m_2(\lambda),\cdots,m_r(\lambda)$ 的最低公倍式
+
+---
+
+*eg*
+
+求
+
+$$
+J=
+\begin{bmatrix}
+5 & &\\
+& 5 & 1\\
+& & 5
 \end{bmatrix}
 $$
 
-则
+的最小多项式
+
+## 2.7 数字矩阵的有理标准型
+
+### 2.7.1 有理规范型
+
+**定义:**
+
+设 $A\in\mathbb{F}^{n\times n}$,其特征矩阵 $\lambda I-A$ 不为常数 1 的不变因子为
 
 $$
-J=J_2(2)\oplus J_1(3).
+\begin{align}
+&\varphi_1(\lambda),\varphi_2(\lambda),\cdots,\varphi_k(\lambda)\\
+&\varphi_i(\lambda)=\lambda^{n_i}+a_{1,i}\lambda^{n_i-1}+\cdots+a_{n_i-1,i}\lambda+a_{n_1,i}\\
+&i=1,2,\cdots,k,\sum_{j=1}^kn_j=n    
+\end{align}
 $$
 
+有矩阵 $F$
 
+$$
+F=
+\begin{bmatrix}
+C_1 &&&\\
+& C_2 &&\\
+&& \ddots &\\
+&&& C_k
+\end{bmatrix},
+C_i=
+\begin{bmatrix}
+0 & 1 & &\\
+\vdots && \ddots&\\
+0 &&&1\\
+-a_{n_i,i} & -a_{n_i-1,i}  & \cdots & -a_{1,i}
+\end{bmatrix}
+$$
+
+则 $A\sim F$,称 $F$ 为 $A$ 的有理规范型
+
+---
+
+**定理:**
+
+设
+
+$$
+C_i=
+\begin{bmatrix}
+0 & 1 & &\\
+\vdots && \ddots&\\
+0 &&&1\\
+-a_{n} & -a_{n-1}  & \cdots & -a_{1}
+\end{bmatrix}
+$$
+
+$\lambda_i$ 为方程 $\lambda^n+a_1\lambda^{n-1}+\cdots+a_{n-1}\lambda+a_n=0$ 的一个解,则属于 $\lambda_i$ 的特征值向量为
+
+$$
+\begin{matrix}
+p_i=[1 & \lambda_i & \cdots & \lambda_i^{n-1}]^T
+\end{matrix}
+$$
+
+若有 $n$ 个互异的特征值,则
+
+$$
+C=Pdiag(\lambda_1,\lambda_2,\cdots,\lambda_n)P^{-1}
+$$
+
+其中 $P$ 为 Vendermonde 矩阵
+
+$$
+P=
+\begin{bmatrix}
+1 & 1& \cdots & 1\\
+\lambda_1 & \lambda_2 & \cdots & \lambda_n\\
+\vdots &  \vdots & \ddots & \vdots\\
+\lambda_1^{n-1} & \lambda_2^{n-1} & \cdots & \lambda_n^{n-1}
+\end{bmatrix}
+$$
+
+## 2.8 数字矩阵的 McMillan 标准型
+
+### 2.8.1 McMillan 标准型
+
+**定义:**
+
+对于任意有理分式矩阵 $G(\lambda)\in\mathbb{F}^{m\times n}(\lambda)$
+
+$$
+G(\lambda)=[\frac{a_{ij}(\lambda)}{b_{ij}}(\lambda)]_{m\times n}
+$$
+
+存在单位模矩阵 $U(\lambda)\in\mathbb{F}^{m\times m}[\lambda],V(\lambda)\in\mathbb{F}^{n\times n}[\lambda]$,使
+
+$$
+U(\lambda)G(\lambda)V(\lambda)=
+\begin{bmatrix}
+\frac{d_1(\lambda)}{\varphi_1(\lambda)} & & & &0\\
+& \frac{d_2(\lambda)}{\varphi_2(\lambda)} & & &0\\
+& & \ddots & & 0\\
+& & & \frac{d_r(\lambda)}{\varphi_r(\lambda)} & 0\\
+0 & 0 & 0 & 0 0
+\end{bmatrix}_{m\times n}
+$$
+
+称为 $G(\lambda)$ 的 McMillan 多项式
+其中,$d_i(\lambda)|d_{i+1}(\lambda),\varphi_{i+1}(\lambda)|\varphi_i(\lambda)$,且 $d_i(\lambda),\varphi(\lambda)$ 均为首 1 多项式
