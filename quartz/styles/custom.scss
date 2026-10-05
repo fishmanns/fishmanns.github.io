@@ -4,10 +4,15 @@ article p {
 }
 // put your custom CSS here!
 @layer quartz-user {
+  .toc {
+    min-height: 0;
+    overflow: hidden;
+  }
+
   ul.toc-content.overflow {
     max-height: calc(100vh - 8rem) !important;
     overflow-y: auto !important;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
     overscroll-behavior: contain;
   }
 }
