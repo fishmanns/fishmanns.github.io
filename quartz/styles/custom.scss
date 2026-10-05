@@ -3,3 +3,9 @@ article p {
   text-indent: 2em;
 }
 // put your custom CSS here!
+ul.toc-content.overflow {
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
